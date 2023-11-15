@@ -38,6 +38,7 @@ reserved_emails = [
     "dmarc.report@csuwf.com",
     "keycloak@csuwf.com",
     "wordpress-bot@csuwf.com",
+    "discourse-bot@csuwf.com",
 ]
 
 logger = getlogger()
