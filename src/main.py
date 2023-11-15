@@ -81,16 +81,16 @@ with open("config.json", "r") as f:
     config = json.load(f)
     turnstile_secret_key = config["turnstile_secret_key"]
     keycloak_server_url = config["keycloak_server_url"]
-    keycloak_admin_username = config["keycloak_admin_username"]
-    keycloak_admin_password = config["keycloak_admin_password"]
+    keycloak_client_id = config["keycloak_client_id"]
+    keycloak_client_secret_key = config["keycloak_client_secret_key"]
     keycloak_realm_name = config["keycloak_realm_name"]
     open_registration = config["open_registration"]
 
 keycloak_connection = KeycloakOpenIDConnection(
     server_url=keycloak_server_url,
-    username=keycloak_admin_username,
-    password=keycloak_admin_password,
     realm_name=keycloak_realm_name,
+    client_id=keycloak_client_id,
+    client_secret_key=keycloak_client_secret_key,
     verify=True,
 )
 

@@ -1,8 +1,8 @@
 {
     "turnstile_secret_key": "1x0000000000000000000000000000000AA",
     "keycloak_server_url": "xxxxxxxxx",
-    "keycloak_admin_username": "xxxxxxx",
-    "keycloak_admin_password": "xxxxxxxx",
+    "keycloak_client_id": "admin-cli",
+    "keycloak_client_secret_key": "xxxxxxx",
     "keycloak_realm_name": "master",
     "open_registration": true
 }
