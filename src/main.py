@@ -22,6 +22,7 @@ reserved_users = [
     "wf",
     "csu",
     "csuwf",
+    "paper-server",
 ]
 
 reserved_emails = [
