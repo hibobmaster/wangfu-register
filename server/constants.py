@@ -1,0 +1,30 @@
+reserved_usernames = [
+    "admin",
+    "administrator",
+    "root",
+    "postmaster",
+    "webmaster",
+    "wf",
+    "csu",
+    "csuwf",
+    "paper-server",
+    "no-reply",
+]
+
+reserved_emails = [
+    "admin@csuwf.com",
+    "administrator@csuwf.com",
+    "root@csuwf.com",
+    "postmaster@csuwf.com",
+    "webmaster@csuwf.com",
+    "wf@csuwf.com",
+    "csu@csuwf.com",
+    "csuwf@csuwf.com",
+    "rocketchat-bot@csuwf.com",
+    "nextcloud-bot@csuwf.com",
+    "dmarc.report@csuwf.com",
+    "keycloak@csuwf.com",
+    "wordpress-bot@csuwf.com",
+    "discourse-bot@csuwf.com",
+    "no-reply@csuwf.com",
+]

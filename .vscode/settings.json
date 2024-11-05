@@ -1,0 +1,4 @@
+{
+    "html.customData": ["./web/node_modules/mdui/html-data.zh-cn.json"],
+    "css.customData": ["./web/node_modules/mdui/css-data.zh-cn.json"]
+  }

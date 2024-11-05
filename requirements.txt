@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-python-multipart
-jinja2
-email-validator
-python-keycloak

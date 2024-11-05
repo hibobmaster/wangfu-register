@@ -1,0 +1,8 @@
+fastapi[standard]
+email-validator
+python-keycloak
+pre-commit
+loguru
+sqlmodel
+captcha
+pytest

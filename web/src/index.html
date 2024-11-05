@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+
+    <title>网服数字化系统注册程序</title>
+    <link rel="icon" type="image/png" href="../assets/logo-removebg.png" />
+    <script type="module" src="app.js"></script>
+</head>
+
+<body>
+    <main class="mdui-prose container">
+        <img src="../assets/logo-removebg.png" class="wf-logo bottom-2"></img>
+        <h1>网服注册服务</h1>
+        <mdui-text-field variant="outlined" id="username" label="用户名" autofocus="true" style="margin-bottom: 10px">
+            <span slot="helper" style="color: red" id="username-helper"></span>
+        </mdui-text-field>
+        <div class="email_container">
+        <mdui-text-field variant="outlined" id="email" type="email" label="邮箱" placeholder="xxxx@csuwf.com">
+            <span slot="helper" style="color: red" id="email-helper"></span>
+        </mdui-text-field>
+        </div>
+        <mdui-text-field variant="outlined" id="password" label="密码" toggle-password type="password">
+            <span slot="helper" style="color: red" id="password-helper"></span>
+        </mdui-text-field>
+
+        <div class="captcha_container">
+        <mdui-text-field variant="outlined" id="captcha-code" class="captcha_field" maxlength="4" counter label="验证码">
+            <span slot="helper" style="color: red" id="captcha-helper"></span>
+        </mdui-text-field>
+
+        <div id="captcha"></div>
+    </div>
+
+        <mdui-button id="btn1" variant="tonal" style="border-radius: 5%">注册</mdui-button>
+    </main>
+</body>
+
+</html>

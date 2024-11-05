@@ -1,0 +1,6 @@
+fastapi[standard]
+email-validator
+python-keycloak
+loguru
+sqlmodel
+captcha
