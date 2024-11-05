@@ -9,7 +9,7 @@ from utils.keycloak_api import (
     create_user,
     delete_user_by_username,
 )
-from keycloak import KeycloakDeleteError
+from keycloak import KeycloakDeleteError, KeycloakPostError
 from configs import captcha_session_timeout
 import time
 from utils.log import logger
@@ -59,9 +59,9 @@ def register_user(*, session: Session = Depends(get_session), body: UserCreate):
 
     try:
         create_user(username=_username, password=_password, email=_email)
-    except Exception as e:
+    except KeycloakPostError as e:
         logger.error(e)
-        return UserCreatePublic(ok=False, reason=e)
+        return UserCreatePublic(ok=False, reason="单点认证账号创建失败，请联系管理员")
 
     try:
         # docker exec -it dms setup email add <EMAIL ADDRESS> [<PASSWORD>]
