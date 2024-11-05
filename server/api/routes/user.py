@@ -3,7 +3,13 @@ from fastapi import Depends, HTTPException
 from models import UserCreate, UserCreatePublic, CaptchaData
 from sqlmodel import Session, select
 from database import get_session
-from utils.keycloak_api import check_email_exist, check_username_exist, create_user
+from utils.keycloak_api import (
+    check_email_exist,
+    check_username_exist,
+    create_user,
+    delete_user_by_username,
+)
+from keycloak import KeycloakDeleteError
 from configs import captcha_session_timeout
 import time
 from utils.log import logger
@@ -73,6 +79,11 @@ def register_user(*, session: Session = Depends(get_session), body: UserCreate):
             ],
         )
     except Exception as e:
+        try:
+            delete_user_by_username(_username)
+        except KeycloakDeleteError as e2:
+            logger.error(e2)
+
         logger.error(e)
         return UserCreatePublic(ok=False, reason="邮箱账号创建失败，请联系管理员")
 
