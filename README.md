@@ -30,3 +30,7 @@ npx parcel build src/index.html
 cd server
 python3 -m fastapi run --host "127.0.0.1" --port 10010 --proxy-headers main.py
 ```
+
+## Todo
+- remove user from keycloak instance when failed to create email account
+- password reset
