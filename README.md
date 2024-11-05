@@ -1,7 +1,7 @@
 # wangfu-register
-Edit `config.json`
+![demo1](https://i.imgur.com/8SoOIfi.jpeg)
 
-## development
+## Development
 Create virtual environment and install dependencies
 ```
 python -m venv .venv
@@ -20,7 +20,7 @@ cd server
 python3 -m fastapi dev
 ```
 
-## deployment
+## Deployment
 ```
 # frontend
 cd web
@@ -34,3 +34,4 @@ python3 -m fastapi run --host "127.0.0.1" --port 10010 --proxy-headers main.py
 ## Todo
 - remove user from keycloak instance when failed to create email account
 - password reset
+- add more tests
