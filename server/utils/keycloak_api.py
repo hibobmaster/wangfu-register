@@ -4,7 +4,7 @@ from configs import (
     keycloak_realm_name,
     keycloak_server_url,
 )
-from keycloak import KeycloakAdmin, KeycloakGetError
+from keycloak import KeycloakAdmin
 from keycloak import KeycloakOpenIDConnection
 
 
@@ -32,26 +32,41 @@ def check_email_exist(email: str) -> bool:
         return True
 
 
-def create_user(username: str, password: str, email: str) -> None:
-    try:
-        keycloak_admin.create_user(
-            {
-                "email": email,
-                "username": username,
-                "emailVerified": True,
-                "enabled": True,
-                "credentials": [
-                    {
-                        "type": "password",
-                        "value": password,
-                        "temporary": False,
-                    }
-                ],
-                "attributes": {
-                    "quota": "10G",
-                },
-                "groups": ["网服队员"],
-            }
-        )
-    except KeycloakGetError as e:
-        raise Exception(e)
+def get_user_id(username: str) -> str:
+    return keycloak_admin.get_user_id(username)
+
+
+def create_user(username: str, password: str, email: str) -> str | None:
+    _id = keycloak_admin.create_user(
+        {
+            "email": email,
+            "username": username,
+            "emailVerified": True,
+            "enabled": True,
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": password,
+                    "temporary": False,
+                }
+            ],
+            "attributes": {
+                "quota": "10G",
+            },
+            "groups": ["网服队员"],
+        }
+    )
+    return _id
+
+
+def delete_user_by_username(username: str) -> dict | None:
+    _id = keycloak_admin.get_user_id(username)
+    if not _id:
+        return
+
+    response = keycloak_admin.delete_user(_id)
+    return response
+
+
+def delete_user_by_id(id: str) -> dict | None:
+    return keycloak_admin.delete_user(id)
