@@ -59,7 +59,7 @@ class EmailExistCheck(EmailExist):
 
 
 class UserCreate(BaseModel):
-    username: str
+    username: str = Field(min_length=1, max_length=255)
     password: str
     email: EmailStr
     code: str
